@@ -7,6 +7,7 @@
 #include <fstream>
 #include <string>
 #include <iomanip>
+#include <algorithm>
 
 using namespace std;
 using namespace chrono;
@@ -133,17 +134,7 @@ int readTime(Container &c) {
 
 //selection sort borrowed from zybooks
 void sort_c(vector<string> &v) {
-    for (int i = 0; i < (v.size()-1); i++) {
-        int idxSmallest = i;
-        for (int j = i+1; j < v.size(); j++) {
-            if (v[j] < v[idxSmallest]) {
-                idxSmallest = j;
-            }
-        }
-        string temp = v[i];
-        v[i] = v[idxSmallest];
-        v[idxSmallest] = temp;
-    }
+    sort(v.begin(), v.end());
 }
 void sort_c(list<string> &l) {
     l.sort();
