@@ -52,35 +52,10 @@ int main() {
     list<string> myList;
     set<string> mySet;
     vector<string> myVec;
-  
-
     //Output table for timers
     const int W1 = 12;
     const int W = 14;
-    long long arr[4][3] = {
-        {readTime(myVec), readTime(myList), readTime(mySet)},
-    };
-    list<string> sortList = myList;
-    vector<string> sortVec = myVec;
-    list<string> insertList = myList;
-    vector<string> insertVec = myVec;
-    set<string> insertSet = mySet;
-    list<string> deleteList = myList;
-    vector<string> deleteVec = myVec;
-    set<string> deleteSet = mySet;
-    arr[1][0] = sortTime(sortVec);
-    arr[1][1] = sortTime(sortList);
-    arr[1][2] = -1;
-    
-    arr[2][0] = insertTime(insertVec);
-    arr[2][1] = insertTime(insertList);
-    arr[2][2] = insertTime(insertSet);
-
-    arr[3][0] = deleteTime(deleteVec);
-    arr[3][1] = deleteTime(deleteList);
-    arr[3][2] = deleteTime(deleteSet);
-
-    long long narr[2][4][3];
+    long long narr[2][4][3] {};
     for (int i = 0; i < RUN_NUM; i++) {
         list<string> myList;
         set<string> mySet;
@@ -109,20 +84,20 @@ int main() {
         arr[3][2] = deleteTime(deleteSet);
 
         for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 3; i++) {
+            for (int j = 0; j < 3; j++) {
                 narr[0][i][j] = arr[i][j];
-                narr[i][i][j] += arr[i][j]; 
+                narr[1][i][j] += arr[i][j]; 
             }
         }
     }
     
-    
+
 
     cout << left << setw(W1) << "" << right << setw(W) << "Vector" << setw(W) << "List" << setw(W) << "Set" << endl;
-    cout << left << setw(W1) << "Read time:" << right << setw(W) << arr[0][1] << setw(W) << arr[0][2] << setw(W) << arr[0][3]<< endl;
-    cout << left << setw(W1) << "Sort time:" << right << setw(W) << arr[1][1] << setw(W) << arr[1][2] << setw(W) << arr[1][3] << endl;
-    cout << left << setw(W1) << "Insert time:" << right << setw(W) << arr[2][1] << setw(W) << arr[2][2] << setw(W) << arr[2][3] << endl;
-    cout << left << setw(W1) << "Delete time:" << right << setw(W) << arr[3][1] << setw(W) << arr[3][2] << setw(W) << arr[3][3] << endl;
+    cout << left << setw(W1) << "Read time:" << right << setw(W) << narr[1][0][1]/RUN_NUM << setw(W) << narr[1][0][2]/RUN_NUM << setw(W) << narr[1][0][3]/RUN_NUM << endl;
+    cout << left << setw(W1) << "Sort time:" << right << setw(W) << narr[1][1][1]/RUN_NUM << setw(W) << narr[1][1][2]/RUN_NUM << setw(W) << narr[1][1][3]/RUN_NUM << endl;
+    cout << left << setw(W1) << "Insert time:" << right << setw(W) << narr[1][2][1]/RUN_NUM << setw(W) << narr[1][2][2]/RUN_NUM << setw(W) << narr[1][2][3]/RUN_NUM << endl;
+    cout << left << setw(W1) << "Delete time:" << right << setw(W) << narr[1][3][1]/RUN_NUM << setw(W) << narr[1][3][2]/RUN_NUM << setw(W) << narr[1][3][3]/RUN_NUM << endl;
     return 0;
 }
 
