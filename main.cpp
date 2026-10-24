@@ -11,6 +11,7 @@
 using namespace std;
 using namespace chrono;
 const string S = "TEST_CODE";
+const int RUN_NUM = 15;
 
 //function protypes for functions that add elements for every container type
 void add_item(vector<string> &v, const string &s);
@@ -56,7 +57,7 @@ int main() {
     //Output table for timers
     const int W1 = 12;
     const int W = 14;
-    int arr[4][3] = {
+    long long arr[4][3] = {
         {readTime(myVec), readTime(myList), readTime(mySet)},
     };
     list<string> sortList = myList;
@@ -78,6 +79,40 @@ int main() {
     arr[3][0] = deleteTime(deleteVec);
     arr[3][1] = deleteTime(deleteList);
     arr[3][2] = deleteTime(deleteSet);
+
+    long long narr[2][4][3];
+    for (int i = 0; i < RUN_NUM; i++) {
+        list<string> myList;
+        set<string> mySet;
+        vector<string> myVec;
+        long long arr[4][3] = {
+            {readTime(myVec), readTime(myList), readTime(mySet)},
+            };
+        list<string> sortList = myList;
+        vector<string> sortVec = myVec;
+        list<string> insertList = myList;
+        vector<string> insertVec = myVec;
+        set<string> insertSet = mySet;
+        list<string> deleteList = myList;
+        vector<string> deleteVec = myVec;
+        set<string> deleteSet = mySet;
+        arr[1][0] = sortTime(sortVec);
+        arr[1][1] = sortTime(sortList);
+        arr[1][2] = -1;
+        
+        arr[2][0] = insertTime(insertVec);
+        arr[2][1] = insertTime(insertList);
+        arr[2][2] = insertTime(insertSet);
+
+        arr[3][0] = deleteTime(deleteVec);
+        arr[3][1] = deleteTime(deleteList);
+        arr[3][2] = deleteTime(deleteSet);
+
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; 
+        }
+    }
+
 
     cout << left << setw(W1) << "" << right << setw(W) << "Vector" << setw(W) << "List" << setw(W) << "Set" << endl;
     cout << left << setw(W1) << "Read time:" << right << setw(W) << arr[0][1] << setw(W) << arr[0][2] << setw(W) << arr[0][3]<< endl;
