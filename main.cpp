@@ -68,12 +68,22 @@ int main() {
     vector<string> deleteVec = myVec;
     set<string> deleteSet = mySet;
     arr[1][0] = sortTime(sortVec);
-    arr[1][1] = 
+    arr[1][1] = sortTime(sortList);
+    arr[1][2] = -1;
+    
+    arr[2][0] = insertTime(insertVec);
+    arr[2][1] = insertTime(insertList);
+    arr[2][2] = insertTime(insertSet);
+
+    arr[3][0] = deleteTime(deleteVec);
+    arr[3][1] = deleteTime(deleteList);
+    arr[3][2] = deleteTime(deleteSet);
+
     cout << left << setw(W1) << "" << right << setw(W) << "Vector" << setw(W) << "List" << setw(W) << "Set" << endl;
-    cout << left << setw(W1) << "Read time:" << right << setw(W) << readTime(myVec) << setw(W) << readTime(myList) << setw(W) << readTime(mySet) << endl;
-    cout << left << setw(W1) << "Sort time:" << right << setw(W) << sortTime(sortVec) << setw(W) << sortTime(sortList) << setw(W) << -1 << endl;
-    cout << left << setw(W1) << "Insert time:" << right << setw(W) << insertTime(insertVec) << setw(W) << insertTime(insertList) << setw(W) << insertTime(insertSet) << endl;
-    cout << left << setw(W1) << "Delete time:" << right << setw(W) << deleteTime(deleteVec) << setw(W) << deleteTime(deleteList) << setw(W) << deleteTime(deleteSet) << endl;
+    cout << left << setw(W1) << "Read time:" << right << setw(W) << arr[0][1] << setw(W) << arr[0][2] << setw(W) << arr[0][3]<< endl;
+    cout << left << setw(W1) << "Sort time:" << right << setw(W) << arr[1][1] << setw(W) << arr[1][2] << setw(W) << arr[1][3] << endl;
+    cout << left << setw(W1) << "Insert time:" << right << setw(W) << arr[2][1] << setw(W) << arr[2][2] << setw(W) << arr[2][3] << endl;
+    cout << left << setw(W1) << "Delete time:" << right << setw(W) << arr[3][1] << setw(W) << arr[3][2] << setw(W) << arr[3][3] << endl;
     return 0;
 }
 
