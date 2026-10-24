@@ -50,14 +50,11 @@ template <typename Container>
 int deleteTime(Container &c);
 
 int main() {
-    list<string> myList;
-    set<string> mySet;
-    vector<string> myVec;
-    //Output table for timers
-    const int W1 = 12;
-    const int W = 14;
+    //Initializes empty master array
     long long narr[2][4][3] {};
+    
     for (int i = 0; i < RUN_NUM; i++) {
+        //Populates one 2D array for every run of this outer loop
         list<string> myList;
         set<string> mySet;
         vector<string> myVec;
@@ -83,7 +80,7 @@ int main() {
         arr[3][0] = deleteTime(deleteVec);
         arr[3][1] = deleteTime(deleteList);
         arr[3][2] = deleteTime(deleteSet);
-
+        //traverses the rows and columns of single run arrays and incorporates them into master array. Then sums into second layer of master array        
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 3; j++) {
                 narr[0][i][j] = arr[i][j];
@@ -92,7 +89,9 @@ int main() {
         }
     }
     
-
+    //Output table for timers
+    const int W1 = 12;
+    const int W = 14;
     cout << "Number of simulations: " << RUN_NUM << endl;
     cout << right << setw(W1) << "Operation" << right << setw(W) << "Vector" << setw(W) << "List" << setw(W) << "Set" << endl;
     cout << setw(W1) << "Read" << right << setw(W) << narr[1][0][0]/RUN_NUM << setw(W) << narr[1][0][1]/RUN_NUM << setw(W) << narr[1][0][2]/RUN_NUM << endl;
@@ -132,7 +131,7 @@ int readTime(Container &c) {
 
 //sort functions for vectors and lists, respectively
 
-//selection sort borrowed from zybooks
+//sort from algo library
 void sort_c(vector<string> &v) {
     sort(v.begin(), v.end());
 }
