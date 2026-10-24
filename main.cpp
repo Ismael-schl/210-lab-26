@@ -51,6 +51,14 @@ int main() {
     list<string> myList;
     set<string> mySet;
     vector<string> myVec;
+  
+
+    //Output table for timers
+    const int W1 = 12;
+    const int W = 14;
+    int arr[4][3] = {
+        {readTime(myVec), readTime(myList), readTime(mySet)},
+    };
     list<string> sortList = myList;
     vector<string> sortVec = myVec;
     list<string> insertList = myList;
@@ -59,15 +67,8 @@ int main() {
     list<string> deleteList = myList;
     vector<string> deleteVec = myVec;
     set<string> deleteSet = mySet;
-
-    //Output table for timers
-    const int W1 = 12;
-    const int W = 14;
-    int arr[4][3] = {
-                    {readTime(myVec), readTime(myList), readTime(mySet)},
-                    { },
-                    { }, 
-    };
+    arr[1][0] = sortTime(sortVec);
+    arr[1][1] = 
     cout << left << setw(W1) << "" << right << setw(W) << "Vector" << setw(W) << "List" << setw(W) << "Set" << endl;
     cout << left << setw(W1) << "Read time:" << right << setw(W) << readTime(myVec) << setw(W) << readTime(myList) << setw(W) << readTime(mySet) << endl;
     cout << left << setw(W1) << "Sort time:" << right << setw(W) << sortTime(sortVec) << setw(W) << sortTime(sortList) << setw(W) << -1 << endl;
