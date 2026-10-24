@@ -93,12 +93,12 @@ int main() {
     }
     
 
-
-    cout << left << setw(W1) << "" << right << setw(W) << "Vector" << setw(W) << "List" << setw(W) << "Set" << endl;
-    cout << left << setw(W1) << "Read time:" << right << setw(W) << narr[1][0][0]/RUN_NUM << setw(W) << narr[1][0][1]/RUN_NUM << setw(W) << narr[1][0][2]/RUN_NUM << endl;
-    cout << left << setw(W1) << "Sort time:" << right << setw(W) << narr[1][1][0]/RUN_NUM << setw(W) << narr[1][1][1]/RUN_NUM << setw(W) << -1 << endl;
-    cout << left << setw(W1) << "Insert time:" << right << setw(W) << narr[1][2][0]/RUN_NUM << setw(W) << narr[1][2][1]/RUN_NUM << setw(W) << narr[1][2][2]/RUN_NUM << endl;
-    cout << left << setw(W1) << "Delete time:" << right << setw(W) << narr[1][3][0]/RUN_NUM << setw(W) << narr[1][3][1]/RUN_NUM << setw(W) << narr[1][3][2]/RUN_NUM << endl;
+    cout << "Number of simulations: " << RUN_NUM << endl;
+    cout << right << setw(W1) << "Operation" << right << setw(W) << "Vector" << setw(W) << "List" << setw(W) << "Set" << endl;
+    cout << setw(W1) << "Read" << right << setw(W) << narr[1][0][0]/RUN_NUM << setw(W) << narr[1][0][1]/RUN_NUM << setw(W) << narr[1][0][2]/RUN_NUM << endl;
+    cout << setw(W1) << "Sort" << right << setw(W) << narr[1][1][0]/RUN_NUM << setw(W) << narr[1][1][1]/RUN_NUM << setw(W) << 0 << endl;
+    cout << setw(W1) << "Insert" << right << setw(W) << narr[1][2][0]/RUN_NUM << setw(W) << narr[1][2][1]/RUN_NUM << setw(W) << narr[1][2][2]/RUN_NUM << endl;
+    cout << setw(W1) << "Delete" << right << setw(W) << narr[1][3][0]/RUN_NUM << setw(W) << narr[1][3][1]/RUN_NUM << setw(W) << narr[1][3][2]/RUN_NUM << endl;
     return 0;
 }
 
