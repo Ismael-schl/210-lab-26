@@ -109,10 +109,14 @@ int main() {
         arr[3][2] = deleteTime(deleteSet);
 
         for (int i = 0; i < 4; i++) {
-            for (int j = 0; 
+            for (int j = 0; j < 3; i++) {
+                narr[0][i][j] = arr[i][j];
+                narr[i][i][j] += arr[i][j]; 
+            }
         }
     }
-
+    
+    
 
     cout << left << setw(W1) << "" << right << setw(W) << "Vector" << setw(W) << "List" << setw(W) << "Set" << endl;
     cout << left << setw(W1) << "Read time:" << right << setw(W) << arr[0][1] << setw(W) << arr[0][2] << setw(W) << arr[0][3]<< endl;
