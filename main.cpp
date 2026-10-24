@@ -1,4 +1,4 @@
-//Lab 25|COMSC 210|Ismael Hadi
+//Lab 26|COMSC 210|Ismael Hadi
 #include <iostream>
 #include <chrono>
 #include <set>
