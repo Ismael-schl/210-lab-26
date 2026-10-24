@@ -51,22 +51,27 @@ int main() {
     list<string> myList;
     set<string> mySet;
     vector<string> myVec;
+    list<string> sortList = myList;
+    vector<string> sortVec = myVec;
+    list<string> insertList = myList;
+    vector<string> insertVec = myVec;
+    set<string> insertSet = mySet;
+    list<string> deleteList = myList;
+    vector<string> deleteVec = myVec;
+    set<string> deleteSet = mySet;
 
     //Output table for timers
     const int W1 = 12;
     const int W = 14;
+    int arr[4][3] = {
+                    {readTime(myVec), readTime(myList), readTime(mySet)},
+                    { },
+                    { }, 
+    };
     cout << left << setw(W1) << "" << right << setw(W) << "Vector" << setw(W) << "List" << setw(W) << "Set" << endl;
     cout << left << setw(W1) << "Read time:" << right << setw(W) << readTime(myVec) << setw(W) << readTime(myList) << setw(W) << readTime(mySet) << endl;
-    list<string> sortList = myList;
-    vector<string> sortVec = myVec;
     cout << left << setw(W1) << "Sort time:" << right << setw(W) << sortTime(sortVec) << setw(W) << sortTime(sortList) << setw(W) << -1 << endl;
-    list<string> insertList = myList;
-    vector<string> insertVec = myVec;
-    set<string> insertSet = mySet;
     cout << left << setw(W1) << "Insert time:" << right << setw(W) << insertTime(insertVec) << setw(W) << insertTime(insertList) << setw(W) << insertTime(insertSet) << endl;
-    list<string> deleteList = myList;
-    vector<string> deleteVec = myVec;
-    set<string> deleteSet = mySet;
     cout << left << setw(W1) << "Delete time:" << right << setw(W) << deleteTime(deleteVec) << setw(W) << deleteTime(deleteList) << setw(W) << deleteTime(deleteSet) << endl;
     return 0;
 }
